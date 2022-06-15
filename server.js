@@ -1,23 +1,12 @@
-import axios from "axios";
 import express from "express";
+import { siteModal } from "./models.js";
+import { siteView } from "./views.js";
 
 const app = express();
-const port = 3009;
-
-const nouns = (
-  await axios.get("https://edwardtanguay.netlify.app/share/germanNouns.json")
-).data;
+const port = 3010;
 
 app.get("/", (req, res) => {
-  res.send(
-    `
-        <h1>There are ${nouns.length} nouns</h1>
-        <ul>${nouns
-          .map((m) => `<li>${m.article} ${m.singular}</li>`)
-          .join("")}</ul>`
-           /*  mapten bir array gelir ve array de otomatik olarak virgül konulur. 
-           Bunu kaldirmak icin join() metodunu kullaniriz. */
-  );
+  res.send(siteView(siteModal));
 });
 
 app.listen(port, () => {
