@@ -1,4 +1,4 @@
-export const siteView = ({ nouns }) => {
+export const siteView = ({ nouns, jobs }) => {
   return `<!DOCTYPE html>
    <html lang="en">
    <head>
@@ -10,9 +10,11 @@ export const siteView = ({ nouns }) => {
    <body>
    <h2>There are ${nouns.length} nouns</h2>
    <ul>${nouns.map((m) => `<li>${m.article} ${m.singular}</li>`).join("")}</ul>
-     /*  mapten bir array gelir ve array de otomatik olarak virgül konulur. 
-     Bunu kaldirmak icin join() metodunu kullaniriz. */
+      /* mapten bir array gelir ve array de otomatik olarak virgül konulur. 
+     Bunu kaldirmak icin join() metodunu kullaniriz.  */ 
 
+
+     <h2>There are ${jobs.length} nouns</h2>
    </body>
    </html>
    
